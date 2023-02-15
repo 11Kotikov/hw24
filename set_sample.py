@@ -15,4 +15,4 @@ def get_data(user_input):
             problem_list.append(int(el))
         else:
             problem_list.append(el)
-    return user_input, problem_list
+    return problem_list
