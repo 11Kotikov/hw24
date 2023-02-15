@@ -1,4 +1,4 @@
-def calc(problem_list):
+def rational_calc(problem_list):
     while '*' in problem_list or '/' in problem_list:
         for i in range(1, len(problem_list), 2):
             if problem_list[i] == '*':
@@ -24,14 +24,16 @@ def calc(problem_list):
     # print (problem_list)
     return problem_list
 
+
 def get_result(data):
     # lg.write_data(f'Пример подготовленный для решения: {data}')
     while '(' in data:
         first_i = len(data) - data[::-1].index('(') - 1
         second_i = first_i + data[first_i + 1:].index(')') + 1
         data = data[:first_i] + \
-            calc(data[first_i + 1:second_i]) + data[second_i + 1:]
+            rational_calc(data[first_i + 1:second_i]) + data[second_i + 1:]
     else:
-        lg.write_data(f'Результат открытия скобок: {data}')
-    data = calc(data) 
+        print('I\'m doing calculations')
+        # lg.write_data(f'Результат открытия скобок: {data}')
+    data = rational_calc(data)
     return ''.join(map(str, data))
